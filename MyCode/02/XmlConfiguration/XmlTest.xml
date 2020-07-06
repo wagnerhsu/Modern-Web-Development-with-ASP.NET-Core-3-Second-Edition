@@ -1,5 +1,8 @@
-<settings>
-    <MySettings Id="12">
+<configuration>
+    <MySettings Id="12" Age="N011">
         <Option>10</Option>
     </MySettings>
-</settings>
+    <Person Name="Wagner" Age="20">
+        <Height>160</Height>
+    </Person>
+</configuration>

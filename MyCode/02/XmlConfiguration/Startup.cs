@@ -8,11 +8,19 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 
 namespace XmlConfiguration
 {
     public class Startup
     {
+        IConfiguration _configuration;
+ 
+        public Startup(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
@@ -20,7 +28,7 @@ namespace XmlConfiguration
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IConfiguration configuration)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IConfiguration configuration, ILoggerFactory loggerFactory)
         {
             if (env.IsDevelopment())
             {
@@ -33,6 +41,9 @@ namespace XmlConfiguration
             {
                 endpoints.MapGet("/", async context =>
                 {
+                    var _logger = loggerFactory.CreateLogger<Startup>();
+                    _logger.LogInformation(JsonConvert.SerializeObject(_configuration.GetSection("MySettings").GetChildren(),Formatting.Indented));
+                    _logger.LogInformation(JsonConvert.SerializeObject(_configuration.GetSection("Person:Wagner").GetChildren(),Formatting.Indented));
                     var id = configuration["MySettings:Id"];
                     var optionValue = configuration["MySettings:Option"];
                     await context.Response.WriteAsync($"Hello World! {id},{optionValue}");
