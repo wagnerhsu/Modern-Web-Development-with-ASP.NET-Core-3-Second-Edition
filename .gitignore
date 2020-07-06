@@ -123,3 +123,5 @@ Chapter19/obj
 /code/BookShop
 *.user
 *.suo
+bin/
+obj/
