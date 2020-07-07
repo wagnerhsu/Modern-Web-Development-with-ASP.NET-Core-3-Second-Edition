@@ -1,0 +1,1 @@
+- For the time being, there is some problems to use registry

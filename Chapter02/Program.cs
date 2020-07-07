@@ -3,6 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Configuration.Json;
 using Microsoft.Extensions.Configuration.UserSecrets;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -53,7 +54,7 @@ namespace chapter02
 
                     var bar = AppContext.GetData("Foo");
 
-                    //builder.AddRegistry(RegistryHive.LocalMachine);
+                    builder.AddRegistry(RegistryHive.LocalMachine);
 
 
                 })
