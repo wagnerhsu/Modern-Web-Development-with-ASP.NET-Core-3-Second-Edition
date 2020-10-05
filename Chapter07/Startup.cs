@@ -34,9 +34,9 @@ namespace chapter11
                     options.RootDirectory = "/Pages";
                     //default page
                     options.Conventions.AddPageRoute("/HelloWorld", "");
-                    options.Conventions.AuthorizeAreaPage("Admin", "/Index");
+                    //options.Conventions.AuthorizeAreaPage("Admin", "/Index");
                     options.Conventions.AllowAnonymousToPage("/HelloWorld");
-                    options.Conventions.AddPageRoute("/Order", "My/Order/{id:int}");
+                    //options.Conventions.AddPageRoute("/Order", "My/Order/{id:int}");
                 });
         }
 

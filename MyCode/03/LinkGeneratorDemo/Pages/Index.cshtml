@@ -1,0 +1,13 @@
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div>
+    
+</div>
+<div>
+    <a href="@Url.RouteUrl(new { Page = "Privacy" })">Admin</a>
+    <a href="@Url.RouteUrl(new { action = "Contact", Controller="Home"})">Contact</a>
+</div>
