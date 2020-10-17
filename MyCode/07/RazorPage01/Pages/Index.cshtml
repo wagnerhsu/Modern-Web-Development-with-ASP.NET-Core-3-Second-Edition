@@ -1,0 +1,17 @@
+﻿@page
+@model RazorPage01.Pages.IndexModel
+@{
+}
+
+<h1>@Model.Message</h1>
+
+<form method="post">
+    <input type="text" value="@Model.Person.Email"/>
+    <input type="text" value="@Model.Person.Name" />
+    <input type="submit" value="One Handler" asp-page-handler="One" /> 
+    <input type="submit" value="Another Handler" asp-page-handler="Two" />
+</form>
+
+<form method="post">
+    <input type="submit" value="Third Handler" asp-page-handler="Three" asp-route-foo="bar" />
+</form>
