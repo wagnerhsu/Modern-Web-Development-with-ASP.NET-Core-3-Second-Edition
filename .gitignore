@@ -125,3 +125,4 @@ Chapter19/obj
 *.suo
 bin/
 obj/
+.vs/
