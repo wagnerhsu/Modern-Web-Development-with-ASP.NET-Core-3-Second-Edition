@@ -1,0 +1,1 @@
+- Merge from github [>>](https://github.com/wagnerhsu/packt-ASP.NET-Core-5-and-React-Second-Edition/compare/master...PacktPublishing:master)
